@@ -19,8 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kanagama\\BladeDirectives\\": "src/",
-            "laravel/framework": "^8.0|^9.0"
+            "Kanagama\\BladeDirectives\\": "src/"
         }
     },
     "extra": {
