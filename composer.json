@@ -1,0 +1,34 @@
+{
+    "name": "kanagama/add-directives-to-larave-blade",
+    "description": "Laravel Blade Directive を追加",
+    "keywords": [
+        "laravel",
+        "blade",
+        "directive"
+    ],
+    "homepage": "https://github.com/kanagama/add-directives-to-laravel-blade",
+    "authors": [
+        {
+            "name": "kazuma nagama",
+            "email": "k.nagama0632@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kanagama\\BladeDirectives\\": "src/",
+            "laravel/framework": "^8.0|^9.0"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kanagama\\BladeDirectives\\BladeDirectivesServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}
