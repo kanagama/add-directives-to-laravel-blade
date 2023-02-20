@@ -2,18 +2,12 @@
 
 namespace Kanagama\BladeDirectives\Directives;
 
-use Illuminate\View\Compilers\Concerns\CompilesLoops;
-use Illuminate\View\Concerns\ManagesLoops;
-
 /**
  * @method string loop(string $conditions)
  * @method string endLoop(): string
  */
-final class LoopDirective extends Directive
+final class LoopDirective implements Directive
 {
-    use CompilesLoops;
-    use ManagesLoops;
-
     /**
      * @param  int  $conditions
      * @return string
@@ -23,16 +17,16 @@ final class LoopDirective extends Directive
         return <<<EOT
             <?php
                 \$currentLoopHiddens = [];
-                for (\$iteration = 0; \$iteration < (int) {$conditions}; \$iteration++): ?>
+                for (\$iteration = 0; \$iteration < {$conditions}; \$iteration++):
                     \$currentLoopHiddens[] = \$iteration;
                 endfor;
 
-                \$this->addLoop(\$currentLoopHiddens);
-            ?>
+                \$__env->addLoop(\$currentLoopHiddens);
 
-            <?php foreach (\$currentLoopHiddens as \$currentLoopHidden): ?>
-                \$this->incrementLoopIndices();
-                \$loop = \$this->getLastLoop();
+                foreach (\$currentLoopHiddens as \$currentLoopHidden) :
+                    \$__env->incrementLoopIndices();
+                    \$loop = \$__env->getLastLoop();
+            ?>
         EOT;
     }
 
@@ -42,7 +36,11 @@ final class LoopDirective extends Directive
     public function endLoop(): string
     {
         return <<<EOT
-            \$this->compileEndforeach()
+            <?php
+                endforeach;
+                \$__env->popLoop();
+                \$loop = \$__env->getLastLoop();
+            ?>
         EOT;
     }
 }

@@ -9,6 +9,7 @@ use Kanagama\BladeDirectives\Directives\IsNotNullDirective;
 use Kanagama\BladeDirectives\Directives\IsNullDirective;
 use Kanagama\BladeDirectives\Directives\LoopDirective;
 use Kanagama\BladeDirectives\Directives\NotEmptyDirective;
+use Kanagama\BladeDirectives\Directives\NotIssetDirective;
 use Kanagama\BladeDirectives\Directives\TrueDirective;
 
 class BladeDirectivesServiceProvider extends ServiceProvider
@@ -19,16 +20,18 @@ class BladeDirectivesServiceProvider extends ServiceProvider
     public function boot()
     {
         $directives = [
+            new LoopDirective(),
             new FalseDirective(),
             new IsNotNullDirective(),
             new IsNullDirective(),
-            new LoopDirective(),
             new NotEmptyDirective(),
+            new NotIssetDirective(),
             new TrueDirective(),
         ];
 
         foreach ($directives as $directive) {
             foreach (get_class_methods($directive) as $method) {
+
                 $anonymousFunction = function ($conditions) use ($directive, $method) {
                     // パラメータが存在する、かつメソッド名が end で始まってない
                     return !empty($conditions) && (strpos($method, 'end') !== 0)
@@ -37,7 +40,7 @@ class BladeDirectivesServiceProvider extends ServiceProvider
                 };
 
                 // ディレクティブ追加
-                Blade::directive(strtoupper($method), $anonymousFunction);
+                Blade::directive(strtolower($method), $anonymousFunction);
             }
         }
     }

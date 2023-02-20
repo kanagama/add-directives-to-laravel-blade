@@ -6,7 +6,7 @@ namespace Kanagama\BladeDirectives\Directives;
  * @method string notEmpty(string $conditions)
  * @method string endNotEmpty()
  */
-final class NotEmptyDirective extends Directive
+final class NotEmptyDirective implements Directive
 {
     /**
      * @param  string  $conditions
@@ -15,7 +15,7 @@ final class NotEmptyDirective extends Directive
     public function notEmpty(string $conditions): string
     {
         return <<<EOT
-            <?php if (!empty({$conditions}): ?>
+            <?php if (!empty({$conditions})): ?>
         EOT;
     }
 
@@ -25,7 +25,7 @@ final class NotEmptyDirective extends Directive
     public function endNotEmpty(): string
     {
         return <<<EOT
-            {self::END_IF}
+            <?php endif; ?>
         EOT;
     }
 }

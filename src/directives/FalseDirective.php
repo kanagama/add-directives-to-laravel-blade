@@ -6,7 +6,7 @@ namespace Kanagama\BladeDirectives\Directives;
  * @method string false(string $conditions)
  * @method string endFalse(): string
  */
-final class FalseDirective extends Directive
+final class FalseDirective implements Directive
 {
     /**
      * @param  string  $conditions
@@ -25,7 +25,7 @@ final class FalseDirective extends Directive
     public function endFalse(): string
     {
         return <<<EOT
-            {self::END_IF}
+            <?php endif; ?>
         EOT;
     }
 }
