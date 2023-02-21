@@ -83,8 +83,8 @@ $conditions の回数分表示されます
 @foreach ディレクティブと同じく、$loop 変数が利用できます。
 
 ```php
-@isnotnull ($condition)
+@loop ($condition)
   // $condition が 3 の場合、3回表示されます
   {{ $loop->index }}
-@endisnotnull
+@endloop
 ```
