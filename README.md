@@ -74,7 +74,7 @@ $conditions が null でない場合に表示されます
 ```
 
 
-### loop
+### @loop
 
 $conditions の回数分表示されます
 
