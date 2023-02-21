@@ -6,7 +6,7 @@ namespace Kanagama\BladeDirectives\Directives;
  * @method string notIsset(string $conditions)
  * @method string endNotIsset()
  */
-final class NotIssetDirective extends Directive
+final class NotIssetDirective implements Directive
 {
     /**
      * @param  string  $conditions
@@ -15,7 +15,7 @@ final class NotIssetDirective extends Directive
     public function notIsset(string $conditions): string
     {
         return <<<EOT
-            <?php if (!isset({$conditions}): ?>
+            <?php if (!isset({$conditions})): ?>
         EOT;
     }
 
@@ -25,7 +25,7 @@ final class NotIssetDirective extends Directive
     public function endNotIsset(): string
     {
         return <<<EOT
-            {self::END_IF}
+            <?php endif; ?>
         EOT;
     }
 }

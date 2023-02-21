@@ -6,7 +6,7 @@ namespace Kanagama\BladeDirectives\Directives;
  * @method string true(string $conditions)
  * @method string endTrue()
  */
-final class TrueDirective extends Directive
+final class TrueDirective implements Directive
 {
     /**
      * @param  string  $conditions
@@ -25,7 +25,7 @@ final class TrueDirective extends Directive
     public function endTrue(): string
     {
         return <<<EOT
-            {self::END_IF}
+            <?php endif; ?>
         EOT;
     }
 }
