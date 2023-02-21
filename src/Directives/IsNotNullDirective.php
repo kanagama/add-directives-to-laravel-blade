@@ -6,7 +6,7 @@ namespace Kanagama\BladeDirectives\Directives;
  * @method string isNotNull(string $conditions)
  * @method string endIsNotNull(): string
  */
-final class IsNotNullDirective extends Directive
+final class IsNotNullDirective implements Directive
 {
     /**
      * @param  string  $conditions
@@ -25,7 +25,7 @@ final class IsNotNullDirective extends Directive
     public function endIsNotNull(): string
     {
         return <<<EOT
-            {self::END_IF}
+            <?php endif; ?>
         EOT;
     }
 }

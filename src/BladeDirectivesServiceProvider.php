@@ -9,6 +9,7 @@ use Kanagama\BladeDirectives\Directives\IsNotNullDirective;
 use Kanagama\BladeDirectives\Directives\IsNullDirective;
 use Kanagama\BladeDirectives\Directives\LoopDirective;
 use Kanagama\BladeDirectives\Directives\NotEmptyDirective;
+use Kanagama\BladeDirectives\Directives\NotIssetDirective;
 use Kanagama\BladeDirectives\Directives\TrueDirective;
 
 class BladeDirectivesServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class BladeDirectivesServiceProvider extends ServiceProvider
             new IsNullDirective(),
             new LoopDirective(),
             new NotEmptyDirective(),
+            new NotIssetDirective(),
             new TrueDirective(),
         ];
 
@@ -37,7 +39,7 @@ class BladeDirectivesServiceProvider extends ServiceProvider
                 };
 
                 // ディレクティブ追加
-                Blade::directive(strtoupper($method), $anonymousFunction);
+                Blade::directive(strtolower($method), $anonymousFunction);
             }
         }
     }
