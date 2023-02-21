@@ -21,11 +21,12 @@ final class LoopDirective implements Directive
                     \$currentLoopHiddens[] = \$iteration;
                 endfor;
 
-                \$this->addLoop(\$currentLoopHiddens);
+                \$__env->addLoop(\$currentLoopHiddens);
 
                 foreach (\$currentLoopHiddens as \$currentLoopHidden):
-                    \$this->incrementLoopIndices();
-                    \$loop = \$this->getLastLoop();
+                    \$__env->incrementLoopIndices();
+                    \$loop = \$__env->getLastLoop();
+            ?>
         EOT;
     }
 
