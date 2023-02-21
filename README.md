@@ -33,6 +33,7 @@ $conditions 条件式が false の場合のみ表示されます。
 ### @notempty
 
 @empty ディレクティブと反対の挙動をします
+
 $conditions が empty でない場合に表示されます
 
 ```php
@@ -44,6 +45,7 @@ $conditions が empty でない場合に表示されます
 ### @notisset
 
 @isset ディレクティブと反対の挙動をします
+
 $conditions が定義されていない、または null の場合に表示されます
 
 ```php
