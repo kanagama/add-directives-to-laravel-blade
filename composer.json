@@ -13,13 +13,30 @@
             "email": "k.nagama0632@gmail.com"
         }
     ],
+    "exclude": [
+        "tests/",
+        ".docker/",
+        ".github/",
+        "*.md"
+    ],
     "license": "MIT",
     "require": {
+        "laravel/framework": "^8.0|^9.0",
         "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^6.25",
+        "phpstan/phpstan": "^1.10"
     },
     "autoload": {
         "psr-4": {
             "Kanagama\\BladeDirectives\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+           "Kanagama\\BladeDirectives\\Tests\\": "tests/"
         }
     },
     "extra": {
