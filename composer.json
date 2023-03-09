@@ -15,11 +15,21 @@
     ],
     "license": "MIT",
     "require": {
+        "laravel/framework": "^8.0|^9.0",
         "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.22",
+        "phpunit/phpunit": "^9.6"
     },
     "autoload": {
         "psr-4": {
             "Kanagama\\BladeDirectives\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+           "Kanagama\\BladeDirectives\\Tests\\": "tests/"
         }
     },
     "extra": {

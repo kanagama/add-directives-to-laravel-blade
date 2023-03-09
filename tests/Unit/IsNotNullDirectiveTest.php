@@ -1,9 +1,9 @@
 <?php
 
-namespace Kanagama\BladeDirectives\TestCases;
+namespace Kanagama\BladeDirectives\Tests\Unit;
 
 use Illuminate\Support\Facades\Blade;
-use Tests\TestCase;
+use Kanagama\BladeDirectives\Tests\TestCase;
 
 /**
  *
