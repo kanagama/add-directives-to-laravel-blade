@@ -1,13 +1,9 @@
-# ワークフロー名
 name: Static Analysis
 
-# 対象のイベント
 on:
-  # push:
   pull_request:
 
 jobs:
-  #　ジョブ名
   static-analysis:
     runs-on: ubuntu-latest
 

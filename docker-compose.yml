@@ -4,7 +4,7 @@ services:
     container_name: php74_blade_development
     build:
       context: .
-      dockerfile: ./.docker/PHP74_Dockerfile
+      dockerfile: ./.docker/dockerfile/PHP74_Dockerfile
     volumes:
       - .:/var/www/html
     init: true
